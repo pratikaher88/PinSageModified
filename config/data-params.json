@@ -1,5 +1,5 @@
 {
-	"data-dir": "../../data",
+	"data-dir": "./data_daranki/",
 	"dataset-name": "Amazon_Electronics",
 	"metadata-fn": "meta_Electronics.json.gz",
 	"reviews-fn": "reviews_Electronics_5.json.gz",

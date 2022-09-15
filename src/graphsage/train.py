@@ -16,7 +16,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 import dgl.data
 
-def train(fp="../../data/meta_Electronics.json.gz", epochs=100, hit=True):
+def train(fp="./data_daranki/meta_Electronics.json.gz", epochs=100, hit=True):
     '''
     Processes Data & Trains GraphSAGE Model
 

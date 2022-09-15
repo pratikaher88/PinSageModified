@@ -206,7 +206,7 @@ def main(data_cfg):
 
 if __name__ == "__main__":
     print("Reading data config...")
-    config_dir = "../../config"
+    config_dir = "./config"
     config_fn = "data-params.json"
     with open(os.path.join(config_dir, config_fn)) as fh:
         data_config = json.load(fh)

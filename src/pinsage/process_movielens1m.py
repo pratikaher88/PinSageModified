@@ -22,8 +22,8 @@ import pandas as pd
 # import dgl
 import torch
 # import torchtext
-from builder import PandasGraphBuilder
-from data_utils import *
+from .builder import PandasGraphBuilder
+from .data_utils import *
 
 if __name__ == '__main__':
     

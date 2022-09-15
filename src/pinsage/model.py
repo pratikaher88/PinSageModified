@@ -16,9 +16,9 @@ import torchtext
 from tqdm import tqdm
 
 # local imports
-import layers
-import sampler as sampler_module
-import evaluation
+from . import layers
+from . import sampler as sampler_module
+from . import evaluation
 
 class PinSAGEModel(nn.Module):
     """Wrapper class for the PinSAGE model."""
@@ -90,9 +90,9 @@ def train(dataset, model_cfg):
     user_to_item_etype = dataset['user-to-item-type']
     timestamp = dataset['timestamp-edge-column']  # timestamp column
 
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    # device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
-    # device = torch.device(model_cfg['device'])
+    device = torch.device(model_cfg['device'])
 
     if device.type == 'cpu':
         print('Using CPU...')
@@ -255,7 +255,7 @@ def train(dataset, model_cfg):
         # save model at specified freq or at end of training
         if (epoch_id + 1 == model_cfg['num-epochs'] + start_epoch) or \
                 epoch_id % model_cfg['save-freq'] == 0:
-            model_dir = "../../data"
+            model_dir = "./data_daranki"
             model_fn = "{}_model_{}.pth".format(model_cfg['name'], epoch_id)
             print("Saving model: {}...".format(model_fn))
             state = {
@@ -332,13 +332,13 @@ if __name__ == '__main__':
     # args = parser.parse_args()
 
     # Load dataset
-    data_dir = "../../data"
+    data_dir = "./data_daranki"
     dataset_fn = "processed_Amazon_Electronics.pkl"
     with open(os.path.join(data_dir, dataset_fn), 'rb') as f:
         dataset = pickle.load(f)
 
     # Load config
-    config_dir = "../../config"
+    config_dir = "./config"
     config_fn = "pinsage-model-params.json"
     with open(os.path.join(config_dir, config_fn)) as fh:
         model_config = json.load(fh)

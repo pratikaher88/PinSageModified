@@ -6,8 +6,10 @@ import pickle
 from src.pinsage import model
 from src.pinsage import process_movielens1m
 
-def main(targets):
+import torch
 
+def main(targets):
+    torch.multiprocessing.set_sharing_strategy('file_system')
     if 'help' in targets:
         help_msg = """  Possible targets:
     help: program help message
@@ -52,7 +54,7 @@ def main(targets):
 
         if 'test' in targets:
             print("Testing model embeddings...")
-            rec = model.test(dataset, pinsage_model_cfg, item_embeddings)
+            rec = model.test(dataset, pinsage_model_cfg, item_embeddings[0])
 
 
     if 'graphsage' in targets:

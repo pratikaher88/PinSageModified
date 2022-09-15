@@ -1,4 +1,4 @@
 {
-	"data-dir": "../../data/",
+	"data-dir": "./data_daranki/",
 	"data-out-fn": "processed.pkl"
 }

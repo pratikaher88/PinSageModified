@@ -40,7 +40,7 @@ def filter_image_features(data_dir, image_fn, product_list_fn, out_fn):
 
 if __name__ == '__main__':
     # get directory of data files
-    data_dir = '../../data'
+    data_dir = './data_daranki/'
     image_fn = 'image_features_Electronics.b'
     product_list_fn = 'products.out'
     out_fn = 'image_processed.out'
