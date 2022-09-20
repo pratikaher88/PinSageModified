@@ -2,7 +2,10 @@ import dgl
 import numpy as np
 import scipy.sparse as ssp
 import dask.dataframe as dd
+import dask
+from multiprocessing.pool import Pool
 
+dask.config.set(pool=Pool(1))
 
 def train_test_split_by_time(df, timestamp, user):
     """Creates train-test splits of dataset by training on past to predict the future.
