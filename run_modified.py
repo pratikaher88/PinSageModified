@@ -52,16 +52,15 @@ def main(targets):
 
         if 'test' in targets:
             print("Testing model embeddings...")
-            rec = model.test(dataset, pinsage_model_cfg, item_embeddings)
+            rec = model.test(dataset, pinsage_model_cfg, item_embeddings[0])
 
-
-    if 'graphsage' in targets:
-        config_dir = "./config"
-        config_fn = "graphsage-model-params.json"
-        with open(os.path.join(config_dir, config_fn)) as fh:
-            graphsage_model_cfg = json.load(fh)
-        graphsage_model = train(data_cfg, graphsage_model_cfg)
-        graphsage_model.save() # save model as pth
+    # if 'graphsage' in targets:
+    #     config_dir = "./config"
+    #     config_fn = "graphsage-model-params.json"
+    #     with open(os.path.join(config_dir, config_fn)) as fh:
+    #         graphsage_model_cfg = json.load(fh)
+    #     graphsage_model = train(data_cfg, graphsage_model_cfg)
+    #     graphsage_model.save() # save model as pth
 
     return
 

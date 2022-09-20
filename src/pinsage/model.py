@@ -164,6 +164,8 @@ def train(dataset, model_cfg):
     # training Data Loader Iterator
     dataloader_it = iter(dataloader)
 
+    print(g, item_ntype, textset, model_cfg['hidden-dims'], model_cfg['num-layers'])
+
     # Model
     model = PinSAGEModel(g, item_ntype, textset,
                          model_cfg['hidden-dims'], model_cfg['num-layers']).to(device)
